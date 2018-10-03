@@ -78,8 +78,12 @@ VueMasonryPlugin.install = function (Vue, options) {
       Events.$on(EVENT_IMAGE_LOADED, masonryRedrawHandler)
       Events.$on(EVENT_DESTROY, masonryDestroyHandler)
     },
-    unbind: function (el, nodeObj) {
-      Events.$emit(EVENT_DESTROY)
+    unbind: function (el, binding, nodeObj) {
+      setTimeout(() => {
+        console.log('test', binding.value);
+        Events.$emit(EVENT_DESTROY)
+
+      }, binding.value.delayDestroy || 0);
     }
   })
 
