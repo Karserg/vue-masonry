@@ -80,9 +80,7 @@ VueMasonryPlugin.install = function (Vue, options) {
     },
     unbind: function (el, binding, nodeObj) {
       setTimeout(() => {
-        console.log('test', binding.value);
         Events.$emit(EVENT_DESTROY)
-
       }, binding.value.delayDestroy || 0);
     }
   })
